@@ -62,8 +62,8 @@ IMG_WIDTH = 139
 # IMG_WIDTH = 299
 
 BATCH_SIZE = 64 # dữ liệu được sử dụng trong quá trình huấn luyện mô hình.
-EPOCHS = 30 # vòng lặp qua toàn bộ dữ liệu huấn luyện
-FINE_TUNING_EPOCHS = 2 # (tinh chỉnh) mô hình.
+EPOCHS = 2 # vòng lặp qua toàn bộ dữ liệu huấn luyện
+FINE_TUNING_EPOCHS = 20 # (tinh chỉnh) mô hình.
 # FINE_TUNING_EPOCHS = 10 # (tinh chỉnh) mô hình.
 
 LR = 0.01 #Tốc độ học
