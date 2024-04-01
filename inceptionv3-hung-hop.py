@@ -47,10 +47,10 @@ warnings.filterwarnings('ignore')
 
 
 # train_dir = "/kaggle/input/emotion-detection-fer/train"
-train_dir = "/kaggle/input/raf-db-dataset/DATASET/train"
+train_dir = "~/Sanosh/images/train"
 
 # test_dir = "/kaggle/input/emotion-detection-fer/test"
-test_dir = "/kaggle/input/raf-db-dataset/DATASET/test"
+test_dir = "~/Sanosh/images/test"
 
 
 SEED = 125 # giúp cho việc tái lặp các thí nghiệm có thể tái tạo được.
