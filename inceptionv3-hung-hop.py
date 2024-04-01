@@ -184,20 +184,20 @@ display_nine_images(images, labels)
 # In[ ]:
 
 
-fig = px.bar(x = CLASS_LABELS_EMOJIS,
-             y = [list(train_generator.classes).count(i) for i in np.unique(train_generator.classes)] , 
-             color = np.unique(train_generator.classes) ,
-             color_continuous_scale="Emrld") 
-fig.update_xaxes(title="Emotions")
-fig.update_yaxes(title = "Number of Images")
-fig.update_layout(showlegend = True,
-    title = {
-        'text': 'Train Data Distribution ',
-        'y':0.95,
-        'x':0.5,
-        'xanchor': 'center',
-        'yanchor': 'top'})
-fig.show()
+# fig = px.bar(x = CLASS_LABELS_EMOJIS,
+#              y = [list(train_generator.classes).count(i) for i in np.unique(train_generator.classes)] , 
+#              color = np.unique(train_generator.classes) ,
+#              color_continuous_scale="Emrld") 
+# fig.update_xaxes(title="Emotions")
+# fig.update_yaxes(title = "Number of Images")
+# fig.update_layout(showlegend = True,
+#     title = {
+#         'text': 'Train Data Distribution ',
+#         'y':0.95,
+#         'x':0.5,
+#         'xanchor': 'center',
+#         'yanchor': 'top'})
+# fig.show()
 
 
 # <a id="model"></a>
