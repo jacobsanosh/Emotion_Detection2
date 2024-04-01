@@ -309,34 +309,34 @@ print('> training time is %.4f minutes' % ((time.time() - starting_time)/60))
 # In[ ]:
 
 
-x = px.line(data_frame= history , y= ["accuracy" , "val_accuracy"] ,markers = True )
-x.update_xaxes(title="Number of Epochs")
-x.update_yaxes(title = "Accuracy")
-x.update_layout(showlegend = True,
-    title = {
-        'text': 'Accuracy vs Number of Epochs',
-        'y':0.94,
-        'x':0.5,
-        'xanchor': 'center',
-        'yanchor': 'top'})
-x.show()
+# x = px.line(data_frame= history , y= ["accuracy" , "val_accuracy"] ,markers = True )
+# x.update_xaxes(title="Number of Epochs")
+# x.update_yaxes(title = "Accuracy")
+# x.update_layout(showlegend = True,
+#     title = {
+#         'text': 'Accuracy vs Number of Epochs',
+#         'y':0.94,
+#         'x':0.5,
+#         'xanchor': 'center',
+#         'yanchor': 'top'})
+# x.show()
 
 
 # In[ ]:
 
 
-x = px.line(data_frame= history , 
-            y= ["loss" , "val_loss"] , markers = True )
-x.update_xaxes(title="Number of Epochs")
-x.update_yaxes(title = "Loss")
-x.update_layout(showlegend = True,
-    title = {
-        'text': 'Loss vs Number of Epochs',
-        'y':0.94,
-        'x':0.5,
-        'xanchor': 'center',
-        'yanchor': 'top'})
-x.show()
+# x = px.line(data_frame= history , 
+#             y= ["loss" , "val_loss"] , markers = True )
+# x.update_xaxes(title="Number of Epochs")
+# x.update_yaxes(title = "Loss")
+# x.update_layout(showlegend = True,
+#     title = {
+#         'text': 'Loss vs Number of Epochs',
+#         'y':0.94,
+#         'x':0.5,
+#         'xanchor': 'center',
+#         'yanchor': 'top'})
+# x.show()
 
 
 # <a id="vis"></a>
@@ -371,21 +371,21 @@ ax = sns.heatmap(cm, cbar=False, cmap="Blues", annot=True, annot_kws={"size": 16
 # In[ ]:
 
 
-# Tính phần trăm trong từng đối tượng của ma trận hỗn loạn
-cm_percent = np.round(cm_data / cm_data.sum(axis=1)[:, np.newaxis] * 100, 2)
+# # Tính phần trăm trong từng đối tượng của ma trận hỗn loạn
+# cm_percent = np.round(cm_data / cm_data.sum(axis=1)[:, np.newaxis] * 100, 2)
 
-# Tạo DataFrame từ ma trận phần trăm
-cm_percent_df = pd.DataFrame(cm_percent, columns=CLASS_LABELS, index=CLASS_LABELS)
-cm_percent_df.index.name = 'Actual'
-cm_percent_df.columns.name = 'Predicted'
+# # Tạo DataFrame từ ma trận phần trăm
+# cm_percent_df = pd.DataFrame(cm_percent, columns=CLASS_LABELS, index=CLASS_LABELS)
+# cm_percent_df.index.name = 'Actual'
+# cm_percent_df.columns.name = 'Predicted'
 
-# Vẽ heatmap của ma trận phần trăm
-plt.figure(figsize=(20, 10))
-plt.title('Confusion Matrix (Percentage)', fontsize=20)
-sns.set(font_scale=1.2)
-ax = sns.heatmap(cm_percent_df, cbar=False, cmap="Blues", annot=True, annot_kws={"size": 16}, fmt='.2f')
+# # Vẽ heatmap của ma trận phần trăm
+# plt.figure(figsize=(20, 10))
+# plt.title('Confusion Matrix (Percentage)', fontsize=20)
+# sns.set(font_scale=1.2)
+# ax = sns.heatmap(cm_percent_df, cbar=False, cmap="Blues", annot=True, annot_kws={"size": 16}, fmt='.2f')
 
-plt.show()
+# plt.show()
 
 
 # ## Classification Report 
@@ -402,23 +402,23 @@ print(classification_report(y_test, y_preds))
 # In[ ]:
 
 
-fig, c_ax = plt.subplots(1,1, figsize = (15,8))
+# fig, c_ax = plt.subplots(1,1, figsize = (15,8))
 
-def multiclass_roc_auc_score(y_test, y_pred, average="macro"):
-    lb = LabelBinarizer()
-    lb.fit(y_test)
-    y_test = lb.transform(y_test)
-    for (idx, c_label) in enumerate(CLASS_LABELS):
-        fpr, tpr, thresholds = roc_curve(y_test[:,idx].astype(int), y_pred[:,idx])
-        c_ax.plot(fpr, tpr,lw=2, label = '%s (AUC:%0.2f)'  % (c_label, auc(fpr, tpr)))
-    c_ax.plot(fpr, fpr, 'black',linestyle='dashed', lw=4, label = 'Random Guessing')
-    return roc_auc_score(y_test, y_pred, average=average)
+# def multiclass_roc_auc_score(y_test, y_pred, average="macro"):
+#     lb = LabelBinarizer()
+#     lb.fit(y_test)
+#     y_test = lb.transform(y_test)
+#     for (idx, c_label) in enumerate(CLASS_LABELS):
+#         fpr, tpr, thresholds = roc_curve(y_test[:,idx].astype(int), y_pred[:,idx])
+#         c_ax.plot(fpr, tpr,lw=2, label = '%s (AUC:%0.2f)'  % (c_label, auc(fpr, tpr)))
+#     c_ax.plot(fpr, fpr, 'black',linestyle='dashed', lw=4, label = 'Random Guessing')
+#     return roc_auc_score(y_test, y_pred, average=average)
 
-print('ROC AUC score:', multiclass_roc_auc_score(y_test , preds  , average = "micro"))
-plt.xlabel('FALSE POSITIVE RATE', fontsize=18)
-plt.ylabel('TRUE POSITIVE RATE', fontsize=16)
-plt.legend(fontsize = 11.5)
-plt.show()
+# print('ROC AUC score:', multiclass_roc_auc_score(y_test , preds  , average = "micro"))
+# plt.xlabel('FALSE POSITIVE RATE', fontsize=18)
+# plt.ylabel('TRUE POSITIVE RATE', fontsize=16)
+# plt.legend(fontsize = 11.5)
+# plt.show()
 
 
 # In[ ]:
